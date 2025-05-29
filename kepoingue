@@ -1,0 +1,1307 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplikasi Interaktif Soal Informatika</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        .accordion-button.active .accordion-icon {
+            transform: rotate(180deg);
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+    </style>
+</head>
+<body class="bg-stone-100 text-stone-800 min-h-screen antialiased">
+    <div class="container mx-auto p-4 sm:p-6 lg:p-8">
+        <header class="mb-8 text-center">
+            <h1 class="text-4xl font-bold text-amber-600">Aplikasi Interaktif Soal Informatika</h1>
+            <p class="text-lg text-stone-600 mt-2">Jelajahi materi, indikator, dan latih pemahaman Anda dengan soal-soal interaktif.</p>
+        </header>
+
+        <nav class="mb-6">
+            <ul class="flex flex-wrap justify-center border-b border-stone-300">
+                <li class="-mb-px mr-1">
+                    <button class="tab-button bg-white inline-block py-2 px-4 text-amber-600 hover:text-amber-700 font-semibold border-l border-t border-r rounded-t" data-tab="blockly">Blockly Games</button>
+                </li>
+                <li class="mr-1">
+                    <button class="tab-button bg-stone-200 hover:bg-stone-300 inline-block py-2 px-4 text-stone-600 hover:text-stone-700 font-semibold rounded-t" data-tab="scratch">Scratch</button>
+                </li>
+                <li class="mr-1">
+                    <button class="tab-button bg-stone-200 hover:bg-stone-300 inline-block py-2 px-4 text-stone-600 hover:text-stone-700 font-semibold rounded-t" data-tab="dampak">Dampak Sosial</button>
+                </li>
+                <li class="mr-1">
+                    <button class="tab-button bg-stone-200 hover:bg-stone-300 inline-block py-2 px-4 text-stone-600 hover:text-stone-700 font-semibold rounded-t" data-tab="lintasbidang">Lintas Bidang</button>
+                </li>
+                <li>
+                    <button class="tab-button bg-stone-200 hover:bg-stone-300 inline-block py-2 px-4 text-stone-600 hover:text-stone-700 font-semibold rounded-t" data-tab="tren">Tren & Solusi</button>
+                </li>
+            </ul>
+        </nav>
+
+        <main>
+            <section id="blockly" class="tab-content active p-6 bg-white rounded-b-lg shadow-lg">
+                <h2 class="text-2xl font-semibold text-amber-600 mb-4">Dasar-Dasar Pemrograman dengan Blockly Games</h2>
+                <p class="mb-6 text-stone-700">Bagian ini memperkenalkan konsep dasar Blockly Games, blok perintah, serta cara menyusun algoritma sederhana. Pelajari teori dan uji pemahaman Anda dengan soal-soal latihan.</p>
+
+                <h3 class="text-xl font-semibold text-stone-700 mb-4">Materi & Indikator</h3>
+                <div class="space-y-4">
+                    <div class="accordion-item bg-stone-50 rounded-lg shadow">
+                        <button class="accordion-button w-full flex justify-between items-center text-left p-4 font-medium text-stone-700 hover:bg-stone-200 focus:outline-none">
+                            <span>Pengenalan Blocky Games</span>
+                            <svg class="accordion-icon w-5 h-5 text-stone-500 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div class="accordion-content p-4 border-t border-stone-200">
+                            <p class="text-stone-600">Peserta didik dapat menjelaskan konsep dasar dan kegunaan Blocky Games. Contoh indikator: Disajikan deskripsi singkat tentang Blocky Games, siswa dapat mengidentifikasi definisi yang tepat mengenai Blocky Games.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item bg-stone-50 rounded-lg shadow">
+                        <button class="accordion-button w-full flex justify-between items-center text-left p-4 font-medium text-stone-700 hover:bg-stone-200 focus:outline-none">
+                            <span>Blok Perintah Dasar & Konsep Perulangan/Kondisi</span>
+                            <svg class="accordion-icon w-5 h-5 text-stone-500 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div class="accordion-content p-4 border-t border-stone-200">
+                            <p class="text-stone-600">Peserta didik dapat mengidentifikasi dan menggunakan blok perintah dasar (misalnya, `move forward`, `turn left/right`), menjelaskan fungsi dan menggunakan blok perulangan (`repeat`, `repeat until`), serta menjelaskan fungsi dan menggunakan blok kondisi (`if path ahead`).</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item bg-stone-50 rounded-lg shadow">
+                        <button class="accordion-button w-full flex justify-between items-center text-left p-4 font-medium text-stone-700 hover:bg-stone-200 focus:outline-none">
+                            <span>Membuat Algoritma Sederhana</span>
+                            <svg class="accordion-icon w-5 h-5 text-stone-500 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div class="accordion-content p-4 border-t border-stone-200">
+                            <p class="text-stone-600">Peserta didik dapat menyusun urutan blok perintah untuk menyelesaikan masalah sederhana. Contoh indikator: Disajikan sebuah masalah sederhana yang dapat diselesaikan dengan Blockly Games, siswa dapat menyusun urutan blok perintah (algoritma) yang benar untuk mencapai solusi.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="text-xl font-semibold text-stone-700 mt-8 mb-4">Latihan Soal</h3>
+                <div class="mb-4 p-4 bg-amber-50 rounded-lg border border-amber-200">
+                    <label for="blocklyTopic" class="block text-stone-700 font-medium mb-2">Topik Soal Baru (misal: "perulangan"):</label>
+                    <input type="text" id="blocklyTopic" class="w-full p-2 border border-stone-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500" placeholder="Contoh: 'blok kondisi'">
+                    <button id="generateBlocklyQuestion" class="mt-3 bg-amber-500 text-white px-4 py-2 rounded-md hover:bg-amber-600 transition-colors duration-200">Buat Soal Baru ✨</button>
+                    <div id="blocklyLoading" class="hidden mt-2 text-amber-700">Membuat soal...</div>
+                    <div id="blocklyError" class="hidden mt-2 text-red-600"></div>
+                </div>
+                <div id="blockly-questions" class="space-y-4"></div>
+            </section>
+
+            <section id="scratch" class="tab-content p-6 bg-white rounded-b-lg shadow-lg">
+                <h2 class="text-2xl font-semibold text-amber-600 mb-4">Kreasi Animasi dan Game dengan Scratch</h2>
+                <p class="mb-6 text-stone-700">Bagian ini membahas antarmuka Scratch, kategori blok, dan bagaimana merancang animasi serta game sederhana. Asah kreativitas dan logika Anda dengan soal-soal interaktif.</p>
+
+                <h3 class="text-xl font-semibold text-stone-700 mb-4">Materi & Indikator</h3>
+                <div class="space-y-4">
+                    <div class="accordion-item bg-stone-50 rounded-lg shadow">
+                        <button class="accordion-button w-full flex justify-between items-center text-left p-4 font-medium text-stone-700 hover:bg-stone-200 focus:outline-none">
+                            <span>Pengenalan Antarmuka Scratch & Sprite/Stage</span>
+                            <svg class="accordion-icon w-5 h-5 text-stone-500 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div class="accordion-content p-4 border-t border-stone-200">
+                            <p class="text-stone-600">Peserta didik dapat mengidentifikasi elemen-elemen utama dalam antarmuka Scratch (Stage, Sprite List, Blocks Palette, Script Area) dan menjelaskan fungsi sprite serta stage.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item bg-stone-50 rounded-lg shadow">
+                        <button class="accordion-button w-full flex justify-between items-center text-left p-4 font-medium text-stone-700 hover:bg-stone-200 focus:outline-none">
+                            <span>Kategori Blok & Perintah Dasar</span>
+                            <svg class="accordion-icon w-5 h-5 text-stone-500 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div class="accordion-content p-4 border-t border-stone-200">
+                            <p class="text-stone-600">Peserta didik dapat mengidentifikasi fungsi dari masing-masing kategori blok di Scratch (Motion, Looks, Sound, Events, Control, Sensing, Operators, Variables) dan menggunakan blok-blok dasar untuk mengontrol pergerakan, tampilan, dan suara sprite.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item bg-stone-50 rounded-lg shadow">
+                        <button class="accordion-button w-full flex justify-between items-center text-left p-4 font-medium text-stone-700 hover:bg-stone-200 focus:outline-none">
+                            <span>Konsep Perulangan, Kondisi, & Interaksi Antar Sprite</span>
+                            <svg class="accordion-icon w-5 h-5 text-stone-500 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div class="accordion-content p-4 border-t border-stone-200">
+                            <p class="text-stone-600">Peserta didik dapat menerapkan blok perulangan (`repeat`, `forever`) dan kondisi (`if`, `if-else`) serta membuat sprite saling berinteraksi menggunakan blok `touching?` atau pesan (`broadcast`).</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item bg-stone-50 rounded-lg shadow">
+                        <button class="accordion-button w-full flex justify-between items-center text-left p-4 font-medium text-stone-700 hover:bg-stone-200 focus:outline-none">
+                            <span>Merancang Animasi Sederhana</span>
+                            <svg class="accordion-icon w-5 h-5 text-stone-500 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div class="accordion-content p-4 border-t border-stone-200">
+                             <p class="text-stone-600">Peserta didik dapat merancang dan mengimplementasikan animasi sederhana menggunakan kombinasi blok gerak, tampilan, dan kontrol di Scratch. Contoh indikator: Diberikan skenario animasi sederhana, siswa dapat memilih dan menyusun kombinasi blok perintah (misalnya gerak, tampilan, suara, kontrol) yang tepat di Scratch untuk menghasilkan animasi sesuai skenario.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item bg-stone-50 rounded-lg shadow">
+                        <button class="accordion-button w-full flex justify-between items-center text-left p-4 font-medium text-stone-700 hover:bg-stone-200 focus:outline-none">
+                            <span>Membuat Game Sederhana</span>
+                            <svg class="accordion-icon w-5 h-5 text-stone-500 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div class="accordion-content p-4 border-t border-stone-200">
+                             <p class="text-stone-600">Peserta didik dapat membuat game sederhana di Scratch yang melibatkan interaksi sprite, kondisi, dan skor. Contoh indikator: Disajikan konsep game sederhana (misalnya, game kejar-kejaran atau kuis interaktif), siswa dapat merancang dan mengimplementasikan logika dasar game tersebut menggunakan blok-blok Scratch, termasuk interaksi antar sprite, penggunaan variabel (misalnya untuk skor), dan kondisi.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="text-xl font-semibold text-stone-700 mt-8 mb-4">Latihan Soal</h3>
+                <div class="mb-4 p-4 bg-amber-50 rounded-lg border border-amber-200">
+                    <label for="scratchTopic" class="block text-stone-700 font-medium mb-2">Topik Soal Baru (misal: "interaksi sprite"):</label>
+                    <input type="text" id="scratchTopic" class="w-full p-2 border border-stone-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500" placeholder="Contoh: 'blok kontrol'">
+                    <button id="generateScratchQuestion" class="mt-3 bg-amber-500 text-white px-4 py-2 rounded-md hover:bg-amber-600 transition-colors duration-200">Buat Soal Baru ✨</button>
+                    <div id="scratchLoading" class="hidden mt-2 text-amber-700">Membuat soal...</div>
+                    <div id="scratchError" class="hidden mt-2 text-red-600"></div>
+                </div>
+                <div id="scratch-questions" class="space-y-4"></div>
+            </section>
+
+            <section id="dampak" class="tab-content p-6 bg-white rounded-b-lg shadow-lg">
+                <h2 class="text-2xl font-semibold text-amber-600 mb-4">Memahami Dampak Sosial Informatika</h2>
+                <p class="mb-6 text-stone-700">Bagian ini mengulas dampak positif dan negatif informatika, serta isu-isu penting seperti keamanan digital, privasi, etika digital, hoaks, dan literasi digital.</p>
+
+                <h3 class="text-xl font-semibold text-stone-700 mb-4">Materi & Indikator</h3>
+                <div class="space-y-4">
+                    <div class="accordion-item bg-stone-50 rounded-lg shadow">
+                        <button class="accordion-button w-full flex justify-between items-center text-left p-4 font-medium text-stone-700 hover:bg-stone-200 focus:outline-none">
+                            <span>Dampak Positif & Negatif Informatika</span>
+                            <svg class="accordion-icon w-5 h-5 text-stone-500 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div class="accordion-content p-4 border-t border-stone-200">
+                            <p class="text-stone-600">Peserta didik dapat menjelaskan dan memberikan contoh dampak positif serta negatif informatika bagi kehidupan manusia.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item bg-stone-50 rounded-lg shadow">
+                        <button class="accordion-button w-full flex justify-between items-center text-left p-4 font-medium text-stone-700 hover:bg-stone-200 focus:outline-none">
+                            <span>Keamanan Digital, Privasi, & Etika Digital</span>
+                            <svg class="accordion-icon w-5 h-5 text-stone-500 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div class="accordion-content p-4 border-t border-stone-200">
+                            <p class="text-stone-600">Peserta didik dapat menjelaskan konsep keamanan digital, privasi data, dan prinsip-prinsip etika digital (netiquette).</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item bg-stone-50 rounded-lg shadow">
+                        <button class="accordion-button w-full flex justify-between items-center text-left p-4 font-medium text-stone-700 hover:bg-stone-200 focus:outline-none">
+                            <span>Hoaks & Literasi Digital</span>
+                            <svg class="accordion-icon w-5 h-5 text-stone-500 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div class="accordion-content p-4 border-t border-stone-200">
+                            <p class="text-stone-600">Peserta didik dapat mengidentifikasi ciri-ciri hoaks, cara menangkalnya, dan menjelaskan pentingnya literasi digital.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="text-xl font-semibold text-stone-700 mt-8 mb-4">Latihan Soal</h3>
+                <div class="mb-4 p-4 bg-amber-50 rounded-lg border border-amber-200">
+                    <label for="dampakTopic" class="block text-stone-700 font-medium mb-2">Topik Soal Baru (misal: "keamanan siber"):</label>
+                    <input type="text" id="dampakTopic" class="w-full p-2 border border-stone-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500" placeholder="Contoh: 'etika digital'">
+                    <button id="generateDampakQuestion" class="mt-3 bg-amber-500 text-white px-4 py-2 rounded-md hover:bg-amber-600 transition-colors duration-200">Buat Soal Baru ✨</button>
+                    <div id="dampakLoading" class="hidden mt-2 text-amber-700">Membuat soal...</div>
+                    <div id="dampakError" class="hidden mt-2 text-red-600"></div>
+                </div>
+                <div id="dampak-questions" class="space-y-4"></div>
+            </section>
+
+            <section id="lintasbidang" class="tab-content p-6 bg-white rounded-b-lg shadow-lg">
+                <h2 class="text-2xl font-semibold text-amber-600 mb-4">Informatika dalam Berbagai Sektor</h2>
+                <p class="mb-6 text-stone-700">Bagian ini mengeksplorasi bagaimana informatika berkolaborasi dan memberikan kontribusi signifikan di berbagai bidang seperti pendidikan, kesehatan, ekonomi, transportasi, pertanian, dan seni.</p>
+
+                <h3 class="text-xl font-semibold text-stone-700 mb-4">Materi & Indikator</h3>
+                <div class="space-y-4">
+                    <div class="accordion-item bg-stone-50 rounded-lg shadow">
+                        <button class="accordion-button w-full flex justify-between items-center text-left p-4 font-medium text-stone-700 hover:bg-stone-200 focus:outline-none">
+                            <span>Penerapan Informatika di Berbagai Bidang</span>
+                            <svg class="accordion-icon w-5 h-5 text-stone-500 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div class="accordion-content p-4 border-t border-stone-200">
+                            <p class="text-stone-600">Peserta didik dapat mengidentifikasi dan memberikan contoh penerapan informatika dalam bidang pendidikan, kesehatan, ekonomi, transportasi, pertanian, dan seni.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item bg-stone-50 rounded-lg shadow">
+                        <button class="accordion-button w-full flex justify-between items-center text-left p-4 font-medium text-stone-700 hover:bg-stone-200 focus:outline-none">
+                            <span>Peran Algoritma dalam Kehidupan Sehari-hari</span>
+                            <svg class="accordion-icon w-5 h-5 text-stone-500 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div class="accordion-content p-4 border-t border-stone-200">
+                            <p class="text-stone-600">Peserta didik dapat memahami peran algoritma dalam aplikasi sehari-hari, seperti mesin pencari dan sistem rekomendasi.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="text-xl font-semibold text-stone-700 mt-8 mb-4">Latihan Soal</h3>
+                <div class="mb-4 p-4 bg-amber-50 rounded-lg border border-amber-200">
+                    <label for="lintasBidangTopic" class="block text-stone-700 font-medium mb-2">Topik Soal Baru (misal: "informatika di kesehatan"):</label>
+                    <input type="text" id="lintasBidangTopic" class="w-full p-2 border border-stone-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500" placeholder="Contoh: 'algoritma dalam transportasi'">
+                    <button id="generateLintasBidangQuestion" class="mt-3 bg-amber-500 text-white px-4 py-2 rounded-md hover:bg-amber-600 transition-colors duration-200">Buat Soal Baru ✨</button>
+                    <div id="lintasBidangLoading" class="hidden mt-2 text-amber-700">Membuat soal...</div>
+                    <div id="lintasBidangError" class="hidden mt-2 text-red-600"></div>
+                </div>
+                <div id="lintasbidang-questions" class="space-y-4"></div>
+            </section>
+
+            <section id="tren" class="tab-content p-6 bg-white rounded-b-lg shadow-lg">
+                <h2 class="text-2xl font-semibold text-amber-600 mb-4">Tren Masa Depan & Solusi Informatika Inovatif</h2>
+                <p class="mb-6 text-stone-700">Bagian ini membahas tren masa depan informatika, bagaimana merancang solusi berbasis informatika, dan isu-isu lanjutan seperti efisiensi kode dan struktur data.</p>
+
+                <h3 class="text-xl font-semibold text-stone-700 mb-4">Materi & Indikator</h3>
+                <div class="space-y-4">
+                    <div class="bg-stone-50 p-4 rounded-lg shadow">
+                        <h3 class="text-xl font-semibold text-stone-700 mb-2">Merancang Solusi Berbasis Informatika</h3>
+                        <p class="text-stone-600 mb-2">Informatika memberdayakan kita untuk merancang solusi kreatif untuk masalah kompleks di berbagai bidang. Ini melibatkan pemahaman masalah, analisis kebutuhan, perancangan algoritma, dan implementasi menggunakan teknologi yang sesuai.</p>
+                        <p class="text-stone-600">Contoh indikator: Disajikan sebuah permasalahan kontekstual di bidang non-informatika (misalnya, pengelolaan sampah di perkotaan), siswa dapat mengusulkan rancangan solusi awal berbasis informatika, seperti aplikasi pelaporan atau sistem optimasi rute pengumpulan sampah.</p>
+                    </div>
+                    <div class="bg-stone-50 p-4 rounded-lg shadow">
+                        <h3 class="text-xl font-semibold text-stone-700 mb-2">Prediksi Tren Dampak Informatika di Masa Depan</h3>
+                        <p class="text-stone-600 mb-2">Beberapa tren yang diperkirakan akan terus membentuk masa depan meliputi Kecerdasan Buatan (AI), Internet of Things (IoT), Big Data, komputasi awan, dan keamanan siber yang semakin canggih.</p>
+                        <ul class="list-disc list-inside text-stone-600 space-y-1">
+                            <li>Pekerjaan: Otomatisasi tugas rutin, munculnya profesi baru terkait data dan AI.</li>
+                            <li>Pendidikan: Pembelajaran personalisasi, akses global ke sumber belajar.</li>
+                            <li>Sosial: Perubahan cara berinteraksi, tantangan baru terkait privasi dan bias algoritma.</li>
+                            <li>Etika: Perlunya pedoman etika yang kuat untuk pengembangan dan penggunaan teknologi baru.</li>
+                        </ul>
+                        <p class="text-stone-600 mt-2">Contoh indikator: Siswa dapat memprediksi dan menjelaskan minimal dua tren dampak informatika di masa depan pada aspek pekerjaan, seperti otomatisasi dan kebutuhan skill baru, serta dampaknya pada interaksi sosial.</p>
+                    </div>
+                </div>
+
+                <h3 class="text-xl font-semibold text-stone-700 mt-8 mb-4">Usulkan Solusi Informatika ✨</h3>
+                <div class="mb-4 p-4 bg-amber-50 rounded-lg border border-amber-200">
+                    <label for="problemInput" class="block text-stone-700 font-medium mb-2">Jelaskan masalah yang ingin Anda pecahkan dengan informatika:</label>
+                    <textarea id="problemInput" class="w-full p-2 border border-stone-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 h-24" placeholder="Contoh: 'Bagaimana informatika bisa membantu mengurangi kemacetan lalu lintas di kota besar?'"></textarea>
+                    <button id="solveProblemButton" class="mt-3 bg-amber-500 text-white px-4 py-2 rounded-md hover:bg-amber-600 transition-colors duration-200">Usulkan Solusi</button>
+                    <div id="problemSolverLoading" class="hidden mt-2 text-amber-700">Mencari solusi...</div>
+                    <div id="problemSolverError" class="hidden mt-2 text-red-600"></div>
+                    <div id="solutionOutput" class="mt-4 p-3 bg-amber-50 rounded-md border border-amber-200 hidden">
+                        <h4 class="text-stone-700 font-semibold text-lg mb-2">Solusi yang Diusulkan: <span id="solutionTitle" class="text-amber-700"></span></h4>
+                        <p class="text-stone-700 font-semibold">Deskripsi Masalah:</p>
+                        <p id="outputProblemDescription" class="text-stone-600 mb-2"></p>
+                        <p class="text-stone-700 font-semibold">Komponen Utama:</p>
+                        <ul id="outputCoreComponents" class="list-disc list-inside text-stone-600 mb-2"></ul>
+                        <p class="text-stone-700 font-semibold">Manfaat Potensial:</p>
+                        <ul id="outputPotentialBenefits" class="list-disc list-inside text-stone-600"></ul>
+                    </div>
+                </div>
+
+                <h3 class="text-xl font-semibold text-stone-700 mt-8 mb-4">Latihan Soal</h3>
+                <div class="mb-4 p-4 bg-amber-50 rounded-lg border border-amber-200">
+                    <label for="trenTopic" class="block text-stone-700 font-medium mb-2">Topik Soal Baru (misal: "AI di masa depan"):</label>
+                    <input type="text" id="trenTopic" class="w-full p-2 border border-stone-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500" placeholder="Contoh: 'efisiensi kode'">
+                    <button id="generateTrenQuestion" class="mt-3 bg-amber-500 text-white px-4 py-2 rounded-md hover:bg-amber-600 transition-colors duration-200">Buat Soal Baru ✨</button>
+                    <div id="trenLoading" class="hidden mt-2 text-amber-700">Membuat soal...</div>
+                    <div id="trenError" class="hidden mt-2 text-red-600"></div>
+                </div>
+                <div id="tren-questions" class="space-y-4"></div>
+
+                <h3 class="text-xl font-semibold text-stone-700 mt-8 mb-4">Analisis Level Kognitif Soal</h3>
+                <div class="chart-container">
+                    <canvas id="cognitiveLevelChart"></canvas>
+                </div>
+            </section>
+        </main>
+
+        <footer class="mt-12 text-center text-sm text-stone-500">
+            <p>&copy; <span id="currentYear"></span> Aplikasi Interaktif Soal Informatika. Dibuat untuk tujuan edukasi.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Data soal yang sudah ada
+        const questionsData = [
+            {
+                id: 'q1',
+                tab: 'blockly',
+                type: 'mcq',
+                question: 'Aplikasi web yang menggunakan blok-blok visual untuk belajar pemrograman melalui permainan adalah ....',
+                options: ['Scratch', 'Blockly Games', 'Code.org', 'Microsoft MakeCode'],
+                correctAnswer: 'b',
+                tujuanPembelajaran: 'Memahami konsep dasar Blocky Games.',
+                indikatorSoal: 'Disajikan deskripsi aplikasi, siswa dapat mengidentifikasi nama aplikasi.',
+                levelKognitif: 'LOTS (C1 - Mengingat)'
+            },
+            {
+                id: 'q2',
+                tab: 'blockly',
+                type: 'mcq',
+                question: 'Dalam Blockly Games, blok perintah yang umumnya digunakan untuk menggerakkan karakter ke depan adalah ....',
+                options: ['turn left', 'turn right', 'move forward', 'repeat'],
+                correctAnswer: 'c',
+                tujuanPembelajaran: 'Menggunakan blok perintah dasar Blockly Games.',
+                indikatorSoal: 'Diberikan pilihan blok, siswa dapat memilih blok gerak maju.',
+                levelKognitif: 'LOTS (C2 - Memahami)'
+            },
+            {
+                id: 'q3',
+                tab: 'blockly',
+                type: 'mcq',
+                question: 'Blok "repeat until" dalam Blockly Games berfungsi untuk ....',
+                options: ['Melakukan tindakan satu kali.', 'Melakukan tindakan berulang kali sampai kondisi tertentu terpenuhi.', 'Memberikan pilihan tindakan.', 'Menghentikan program.'],
+                correctAnswer: 'b',
+                tujuanPembelajaran: 'Memahami fungsi blok perulangan (`repeat until`).',
+                indikatorSoal: 'Disajikan deskripsi fungsi blok, siswa dapat mengidentifikasi fungsi `repeat until`.',
+                levelKognitif: 'LOTS (C2 - Memahami)'
+            },
+            {
+                id: 'q4',
+                tab: 'blockly',
+                type: 'mcq',
+                question: 'Perhatikan potongan kode Blockly berikut: <br> `if (path ahead) then move forward end` <br> Kode di atas akan menyebabkan karakter bergerak maju hanya jika ....',
+                options: ['Karakter selalu bergerak maju.', 'Tidak ada jalan di depannya.', 'Ada jalan di depannya.', 'Karakter berbelok.'],
+                correctAnswer: 'c',
+                tujuanPembelajaran: 'Menganalisis potongan kode Blockly dengan kondisi.',
+                indikatorSoal: 'Diberikan potongan kode kondisi, siswa dapat menentukan hasil eksekusi.',
+                levelKognitif: 'HOTS (C4 - Menganalisis)'
+            },
+            {
+                id: 'q5',
+                tab: 'blockly',
+                type: 'mcq',
+                question: 'Untuk membuat karakter mengambil sebuah item yang berada satu langkah di depan lalu berbelok ke kiri, urutan blok yang tepat adalah ....',
+                options: ['turn left, move forward, pick up', 'pick up, move forward, turn left', 'move forward, pick up, turn left', 'turn left, pick up, move forward'],
+                correctAnswer: 'c',
+                tujuanPembelajaran: 'Menyusun urutan blok untuk tugas spesifik.',
+                indikatorSoal: 'Diberikan deskripsi tugas, siswa dapat memilih urutan blok yang tepat.',
+                levelKognitif: 'HOTS (C3 - Menerapkan)'
+            },
+            {
+                id: 'q6',
+                tab: 'blockly',
+                type: 'mcq',
+                question: 'Seorang siswa ingin mengumpulkan tiga bintang yang terletak dalam satu garis lurus dengan jarak satu langkah antar bintang. Manakah susunan blok yang paling efisien?',
+                options: ['move forward, get star, move forward, get star, move forward, get star', 'repeat 3 times [ move forward, get star ]', 'repeat 3 times [ get star, move forward ]', 'move forward, move forward, move forward, get star, get star, get star'],
+                correctAnswer: 'b',
+                tujuanPembelajaran: 'Mengoptimalkan algoritma dengan perulangan.',
+                indikatorSoal: 'Diberikan tugas berulang, siswa dapat memilih susunan blok paling efisien.',
+                levelKognitif: 'HOTS (C5 - Mengevaluasi)'
+            },
+            {
+                id: 'q7',
+                tab: 'scratch',
+                type: 'mcq',
+                question: 'Area utama di antarmuka Scratch tempat sprite beraksi disebut ....',
+                options: ['Blocks Palette', 'Script Area', 'Stage', 'Sprite List'],
+                correctAnswer: 'c',
+                tujuanPembelajaran: 'Mengidentifikasi elemen antarmuka Scratch.',
+                indikatorSoal: 'Disajikan istilah antarmuka, siswa dapat mengidentifikasi Stage.',
+                levelKognitif: 'LOTS (C1 - Mengingat)'
+            },
+            {
+                id: 'q8',
+                tab: 'scratch',
+                type: 'mcq',
+                question: 'Gambar atau objek yang dapat diprogram dan bergerak di Scratch disebut ....',
+                options: ['Background', 'Stage', 'Sprite', 'Costume'],
+                correctAnswer: 'c',
+                tujuanPembelajaran: 'Mengidentifikasi objek utama di Scratch.',
+                indikatorSoal: 'Disajikan deskripsi objek, siswa dapat mengidentifikasi Sprite.',
+                levelKognitif: 'LOTS (C1 - Mengingat)'
+            },
+            {
+                id: 'q9',
+                tab: 'scratch',
+                type: 'mcq',
+                question: 'Blok-blok di Scratch yang berkaitan dengan pergerakan sprite terdapat dalam kategori ....',
+                options: ['Looks', 'Sound', 'Motion', 'Events'],
+                correctAnswer: 'c',
+                tujuanPembelajaran: 'Mengklasifikasikan blok berdasarkan kategori.',
+                indikatorSoal: 'Disajikan kategori blok, siswa dapat mengidentifikasi kategori gerak.',
+                levelKognitif: 'LOTS (C2 - Memahami)'
+            },
+            {
+                id: 'q10',
+                tab: 'scratch',
+                type: 'mcq',
+                question: 'Kategori blok di Scratch yang berisi perintah untuk mengubah tampilan sprite (ukuran, kostum, efek visual) adalah ....',
+                options: ['Motion', 'Looks', 'Sound', 'Control'],
+                correctAnswer: 'b',
+                tujuanPembelajaran: 'Mengklasifikasikan blok berdasarkan kategori.',
+                indikatorSoal: 'Disajikan kategori blok, siswa dapat mengidentifikasi kategori tampilan.',
+                levelKognitif: 'LOTS (C2 - Memahami)'
+            },
+            {
+                id: 'q11',
+                tab: 'scratch',
+                type: 'mcq',
+                question: 'Untuk menambahkan atau memutar suara di Scratch, kita menggunakan blok dari kategori ....',
+                options: ['Motion', 'Looks', 'Sound', 'Sensing'],
+                correctAnswer: 'c',
+                tujuanPembelajaran: 'Mengklasifikasikan blok berdasarkan kategori.',
+                indikatorSoal: 'Disajikan kategori blok, siswa dapat mengidentifikasi kategori suara.',
+                levelKognitif: 'LOTS (C2 - Memahami)'
+            },
+            {
+                id: 'q12',
+                tab: 'scratch',
+                type: 'mcq',
+                question: 'Blok-blok yang berfungsi untuk mendeteksi kejadian (seperti tombol keyboard ditekan atau sprite diklik) terdapat dalam kategori ....',
+                options: ['Control', 'Sensing', 'Events', 'Operators'],
+                correctAnswer: 'c',
+                tujuanPembelajaran: 'Mengklasifikasikan blok berdasarkan kategori.',
+                indikatorSoal: 'Disajikan kategori blok, siswa dapat mengidentifikasi kategori kejadian.',
+                levelKognitif: 'LOTS (C2 - Memahami)'
+            },
+            {
+                id: 'q13',
+                tab: 'scratch',
+                type: 'mcq',
+                question: 'Kategori blok di Scratch yang berisi perintah untuk mengatur alur program (pengulangan, kondisi) adalah ....',
+                options: ['Motion', 'Looks', 'Sound', 'Control'],
+                correctAnswer: 'd',
+                tujuanPembelajaran: 'Mengklasifikasikan blok berdasarkan kategori.',
+                indikatorSoal: 'Disajikan kategori blok, siswa dapat mengidentifikasi kategori kontrol alur program.',
+                levelKognitif: 'LOTS (C2 - Memahami)'
+            },
+            {
+                id: 'q14',
+                tab: 'scratch',
+                type: 'mcq',
+                question: 'Blok-blok di Scratch yang memungkinkan sprite berinteraksi dengan lingkungannya (misalnya, mendeteksi sentuhan atau jarak) ada di kategori ....',
+                options: ['Operators', 'Variables', 'Sensing', 'Looks'],
+                correctAnswer: 'c',
+                tujuanPembelajaran: 'Mengklasifikasikan blok berdasarkan kategori.',
+                indikatorSoal: 'Disajikan kategori blok, siswa dapat mengidentifikasi kategori interaksi lingkungan.',
+                levelKognitif: 'LOTS (C2 - Memahami)'
+            },
+            {
+                id: 'q15',
+                tab: 'scratch',
+                type: 'mcq',
+                question: 'Kategori blok di Scratch yang berisi operasi matematika dan logika adalah ....',
+                options: ['Variables', 'Operators', 'Motion', 'Events'],
+                correctAnswer: 'b',
+                tujuanPembelajaran: 'Mengklasifikasikan blok berdasarkan kategori.',
+                indikatorSoal: 'Disajikan kategori blok, siswa dapat mengidentifikasi kategori operasi.',
+                levelKognitif: 'LOTS (C2 - Memahami)'
+            },
+            {
+                id: 'q16',
+                tab: 'scratch',
+                type: 'mcq',
+                question: 'Untuk menyimpan dan mengubah nilai seperti skor atau timer dalam Scratch, kita menggunakan blok dari kategori ....',
+                options: ['Sensing', 'Control', 'Variables', 'Sound'],
+                correctAnswer: 'c',
+                tujuanPembelajaran: 'Mengklasifikasikan blok berdasarkan kategori.',
+                indikatorSoal: 'Disajikan kategori blok, siswa dapat mengidentifikasi kategori penyimpanan nilai.',
+                levelKognitif: 'LOTS (C2 - Memahami)'
+            },
+            {
+                id: 'q17',
+                tab: 'scratch',
+                type: 'mcq',
+                question: 'Blok move 10 steps akan menyebabkan sprite bergerak ....',
+                options: ['Berputar 10 derajat.', 'Maju 10 langkah ke arah yang sedang dihadapinya.', 'Berpindah ke posisi x=10, y=0.', 'Membesarkan ukurannya sebanyak 10.'],
+                correctAnswer: 'b',
+                tujuanPembelajaran: 'Memahami efek blok `move` pada sprite.',
+                indikatorSoal: 'Diberikan blok `move`, siswa dapat menjelaskan efeknya.',
+                levelKognitif: 'LOTS (C2 - Memahami)'
+            },
+            {
+                id: 'q18',
+                tab: 'scratch',
+                type: 'mcq',
+                question: 'Apa yang akan terjadi jika kita menggunakan blok repeat 4 [ move 5 steps ]?',
+                options: ['Sprite akan bergerak 5 langkah satu kali.', 'Sprite akan bergerak 4 langkah sebanyak 5 kali.', 'Sprite akan bergerak 5 langkah sebanyak 4 kali.', 'Sprite tidak akan bergerak.'],
+                correctAnswer: 'c',
+                tujuanPembelajaran: 'Menganalisis efek blok perulangan.',
+                indikatorSoal: 'Diberikan script perulangan, siswa dapat memprediksi hasilnya.',
+                levelKognitif: 'HOTS (C4 - Menganalisis)'
+            },
+            {
+                id: 'q19',
+                tab: 'scratch',
+                type: 'mcq',
+                question: 'Perhatikan script Scratch berikut:<br> `if <mouse down?> then say "Diklik!" end` <br> Sprite akan mengatakan "Diklik!" jika ....',
+                options: ['Sprite bergerak.', 'Tombol panah ditekan.', 'Tombol mouse sedang ditekan.', 'Sprite menyentuh tepi.'],
+                correctAnswer: 'c',
+                tujuanPembelajaran: 'Menganalisis efek blok kondisi dengan input.',
+                indikatorSoal: 'Diberikan script kondisi, siswa dapat menentukan pemicunya.',
+                levelKognitif: 'HOTS (C4 - Menganalisis)'
+            },
+            {
+                id: 'q20',
+                tab: 'scratch',
+                type: 'mcq',
+                question: 'Untuk membuat sprite A bereaksi (misalnya, mengeluarkan suara) ketika menyentuh sprite B, blok yang paling tepat digunakan pada sprite A adalah ....',
+                options: ['move 10 steps', 'say "Halo!"', 'if <touching [sprite B] ?> then play sound [pop]', 'forever { go to [sprite B] }'],
+                correctAnswer: 'c',
+                tujuanPembelajaran: 'Menerapkan blok interaksi antar sprite.',
+                indikatorSoal: 'Diberikan skenario interaksi, siswa dapat memilih blok yang tepat.',
+                levelKognitif: 'HOTS (C3 - Menerapkan)'
+            },
+            {
+                id: 'q21',
+                tab: 'scratch',
+                type: 'mcq',
+                question: 'Sebuah sprite memiliki script:<br> `when green flag clicked` <br> `set [size % v] to (100)` <br> `forever` <br> `  change [size % v] by (10)` <br> `  wait (0.5) secs` <br> `  if <(size %) > (150)> then` <br> `    set [size % v] to (100)` <br> `  end` <br> `end` <br> Apa yang akan terjadi pada ukuran sprite ini?',
+                options: ['Ukurannya akan terus membesar tanpa batas.', 'Ukurannya akan mengecil.', 'Ukurannya akan berulang kali membesar hingga 150% lalu kembali menjadi 100%.', 'Ukurannya akan tetap 100%.'],
+                correctAnswer: 'c',
+                tujuanPembelajaran: 'Menganalisis script kompleks dengan perulangan dan kondisi.',
+                indikatorSoal: 'Diberikan script kompleks, siswa dapat memprediksi perilaku sprite.',
+                levelKognitif: 'HOTS (C4 - Menganalisis)'
+            },
+            {
+                id: 'q22',
+                tab: 'dampak',
+                type: 'mcq',
+                question: 'Dampak informatika yang memberikan kemudahan dan manfaat bagi kehidupan manusia disebut ....',
+                options: ['Dampak destruktif', 'Dampak negative', 'Dampak positif', 'Dampak samping'],
+                correctAnswer: 'c',
+                tujuanPembelajaran: 'Mengidentifikasi jenis dampak informatika.',
+                indikatorSoal: 'Disajikan deskripsi dampak, siswa dapat mengidentifikasi jenisnya.',
+                levelKognitif: 'LOTS (C1 - Mengingat)'
+            },
+            {
+                id: 'q23',
+                tab: 'dampak',
+                type: 'mcq',
+                question: 'Berikut ini yang merupakan contoh dampak positif informatika adalah ....',
+                options: ['Perundungan siber (cyberbullying)', 'Ketergantungan pada gadget', 'Kemudahan mencari informasi melalui internet', 'Penyebaran berita palsu'],
+                correctAnswer: 'c',
+                tujuanPembelajaran: 'Memberikan contoh dampak positif informatika.',
+                indikatorSoal: 'Diberikan contoh, siswa dapat mengidentifikasi dampak positif.',
+                levelKognitif: 'LOTS (C2 - Memahami)'
+            },
+            {
+                id: 'q24',
+                tab: 'dampak',
+                type: 'mcq',
+                question: 'Salah satu dampak negatif informatika adalah ....',
+                options: ['Meningkatnya efisiensi kerja', 'Komunikasi yang lebih cepat', 'Munculnya kejahatan siber', 'Akses mudah ke Pendidikan'],
+                correctAnswer: 'c',
+                tujuanPembelajaran: 'Memberikan contoh dampak negatif informatika.',
+                indikatorSoal: 'Diberikan contoh, siswa dapat mengidentifikasi dampak negatif.',
+                levelKognitif: 'LOTS (C2 - Memahami)'
+            },
+            {
+                id: 'q25',
+                tab: 'dampak',
+                type: 'mcq',
+                question: 'Praktik melindungi sistem, jaringan, dan program dari serangan digital disebut ....',
+                options: ['Literasi digital', 'Etika digital', 'Keamanan digital (cybersecurity)', 'Jejak digital'],
+                correctAnswer: 'c',
+                tujuanPembelajaran: 'Memahami konsep keamanan digital.',
+                indikatorSoal: 'Disajikan definisi, siswa dapat mengidentifikasi istilahnya.',
+                levelKognitif: 'LOTS (C1 - Mengingat)'
+            },
+            {
+                id: 'q26',
+                tab: 'dampak',
+                type: 'mcq',
+                question: 'Usaha untuk mendapatkan informasi pribadi seseorang secara ilegal dengan menyamar sebagai entitas terpercaya disebut ....',
+                options: ['Malware', 'Phishing', 'Hacking', 'Cracking'],
+                correctAnswer: 'b',
+                tujuanPembelajaran: 'Memahami jenis ancaman keamanan digital.',
+                indikatorSoal: 'Disajikan deskripsi ancaman, siswa dapat mengidentifikasi jenisnya.',
+                levelKognitif: 'LOTS (C1 - Mengingat)'
+            },
+            {
+                id: 'q27',
+                tab: 'dampak',
+                type: 'mcq',
+                question: 'Menggunakan teknologi informasi dengan bertanggung jawab dan menghormati hak orang lain merupakan prinsip dari ....',
+                options: ['Keamanan digital', 'Literasi digital', 'Etika digital', 'Jejak digital'],
+                correctAnswer: 'c',
+                tujuanPembelajaran: 'Memahami prinsip etika digital.',
+                indikatorSoal: 'Disajikan deskripsi prinsip, siswa dapat mengidentifikasi istilahnya.',
+                levelKognitif: 'LOTS (C1 - Mengingat)'
+            },
+            {
+                id: 'q28',
+                tab: 'dampak',
+                type: 'mcq',
+                question: 'Sebuah platform media sosial menjadi tempat penyebaran ujaran kebencian dan berita palsu. Dampak sosial negatif utama dari situasi ini adalah ....',
+                options: ['Meningkatnya popularitas platform tersebut.', 'Terciptanya lapangan kerja baru bagi admin media sosial.', 'Terganggunya kerukunan sosial dan meningkatnya disinformasi.', 'Semakin mudahnya orang berkomunikasi.'],
+                correctAnswer: 'c',
+                tujuanPembelajaran: 'Menganalisis dampak negatif media sosial.',
+                indikatorSoal: 'Diberikan skenario, siswa dapat menganalisis dampak negatif utama.',
+                levelKognitif: 'HOTS (C4 - Menganalisis)'
+            },
+            {
+                id: 'q29',
+                tab: 'dampak',
+                type: 'mcq',
+                question: 'Cara yang paling efektif untuk mengurangi penyebaran berita palsu (hoaks) di internet adalah ....',
+                options: ['Membatasi penggunaan internet.', 'Meningkatkan literasi digital masyarakat.', 'Menghapus semua akun media sosial.', 'Menggunakan VPN setiap saat.'],
+                correctAnswer: 'b',
+                tujuanPembelajaran: 'Mengevaluasi solusi untuk masalah hoaks.',
+                indikatorSoal: 'Diberikan masalah, siswa dapat mengevaluasi solusi paling efektif.',
+                levelKognitif: 'HOTS (C5 - Mengevaluasi)'
+            },
+            {
+                id: 'q30',
+                tab: 'dampak',
+                type: 'mcq',
+                question: 'Kemampuan untuk menggunakan teknologi informasi dan komunikasi secara efektif dan aman disebut ....',
+                options: ['Keamanan siber', 'Etika digital', 'Literasi digital', 'Kecerdasan buatan'],
+                correctAnswer: 'c',
+                tujuanPembelajaran: 'Memahami konsep literasi digital.',
+                indikatorSoal: 'Disajikan definisi, siswa dapat mengidentifikasi istilahnya.',
+                levelKognitif: 'LOTS (C1 - Mengingat)'
+            },
+            {
+                id: 'q31',
+                tab: 'lintasbidang',
+                type: 'mcq',
+                question: 'Pemanfaatan platform belajar daring (e-learning) merupakan contoh penerapan informatika dalam bidang ....',
+                options: ['Kesehatan', 'Ekonomi', 'Pendidikan', 'Transportasi'],
+                correctAnswer: 'c',
+                tujuanPembelajaran: 'Mengidentifikasi penerapan informatika di bidang pendidikan.',
+                indikatorSoal: 'Diberikan contoh, siswa dapat mengidentifikasi bidangnya.',
+                levelKognitif: 'LOTS (C2 - Memahami)'
+            },
+            {
+                id: 'q32',
+                tab: 'lintasbidang',
+                type: 'mcq',
+                question: 'Penggunaan rekam medis elektronik (RME) adalah contoh penerapan informatika dalam bidang ....',
+                options: ['Pendidikan', 'Kesehatan', 'Ekonomi', 'Transportasi'],
+                correctAnswer: 'b',
+                tujuanPembelajaran: 'Mengidentifikasi penerapan informatika di bidang kesehatan.',
+                indikatorSoal: 'Diberikan contoh, siswa dapat mengidentifikasi bidangnya.',
+                levelKognitif: 'LOTS (C2 - Memahami)'
+            },
+            {
+                id: 'q33',
+                tab: 'lintasbidang',
+                type: 'mcq',
+                question: 'Penggunaan aplikasi e-commerce untuk jual beli barang secara daring merupakan penerapan informatika dalam bidang ....',
+                options: ['Kesehatan', 'Pendidikan', 'Transportasi', 'Ekonomi'],
+                correctAnswer: 'd',
+                tujuanPembelajaran: 'Mengidentifikasi penerapan informatika di bidang ekonomi.',
+                indikatorSoal: 'Diberikan contoh, siswa dapat mengidentifikasi bidangnya.',
+                levelKognitif: 'LOTS (C2 - Memahami)'
+            },
+            {
+                id: 'q34',
+                tab: 'lintasbidang',
+                type: 'mcq',
+                question: 'Sistem navigasi GPS pada kendaraan yang membantu menunjukkan rute perjalanan adalah contoh penerapan informatika dalam bidang ....',
+                options: ['Ekonomi', 'Kesehatan', 'Transportasi', 'Pendidikan'],
+                correctAnswer: 'c',
+                tujuanPembelajaran: 'Mengidentifikasi penerapan informatika di bidang transportasi.',
+                indikatorSoal: 'Diberikan contoh, siswa dapat mengidentifikasi bidangnya.',
+                levelKognitif: 'LOTS (C2 - Memahami)'
+            },
+            {
+                id: 'q35',
+                tab: 'lintasbidang',
+                type: 'mcq',
+                question: 'Langkah-langkah terstruktur yang digunakan mesin pencari untuk menampilkan hasil pencarian yang relevan adalah contoh peran ....',
+                options: ['Perangkat keras', 'Algoritma', 'Jaringan computer', 'Antarmuka pengguna'],
+                correctAnswer: 'b',
+                tujuanPembelajaran: 'Memahami peran algoritma dalam aplikasi sehari-hari.',
+                indikatorSoal: 'Diberikan contoh, siswa dapat mengidentifikasi konsep informatika.',
+                levelKognitif: 'LOTS (C2 - Memahami)'
+            },
+            {
+                id: 'q36',
+                tab: 'lintasbidang',
+                type: 'mcq',
+                question: 'Seorang petani menggunakan sensor tanah yang terhubung ke aplikasi untuk memantau kelembapan dan nutrisi tanah secara real-time. Hal ini menunjukkan bagaimana informatika membantu memecahkan masalah dalam bidang ....',
+                options: ['Seni dan desain', 'Pertanian', 'Hiburan', 'Olahraga'],
+                correctAnswer: 'b',
+                tujuanPembelajaran: 'Menganalisis penerapan informatika untuk pemecahan masalah.',
+                indikatorSoal: 'Diberikan skenario, siswa dapat mengidentifikasi bidang masalah.',
+                levelKognitif: 'HOTS (C4 - Menganalisis)'
+            },
+            {
+                id: 'q37',
+                tab: 'lintasbidang',
+                type: 'mcq',
+                question: 'Pembuatan simulasi virtual tata surya menggunakan perangkat lunak komputer untuk pelajaran IPA adalah contoh integrasi informatika dengan mata pelajaran ....',
+                options: ['Matematika', 'Bahasa Indonesia', 'Ilmu Pengetahuan Alam', 'Sejarah'],
+                correctAnswer: 'c',
+                tujuanPembelajaran: 'Mengidentifikasi integrasi informatika dengan mata pelajaran lain.',
+                indikatorSoal: 'Diberikan contoh, siswa dapat mengidentifikasi mata pelajaran yang terintegrasi.',
+                levelKognitif: 'LOTS (C2 - Memahami)'
+            },
+            {
+                id: 'q38',
+                tab: 'tren',
+                type: 'mcq',
+                question: 'Dalam Blockly Games, jika Anda memiliki serangkaian blok perintah yang sering digunakan berulang kali, cara terbaik untuk menyederhanakan kode adalah dengan menggunakan ....',
+                options: ['Blok pengulangan repeat', 'Blok kondisi if', 'Blok fungsi (procedures)', 'Blok komentar'],
+                correctAnswer: 'c',
+                tujuanPembelajaran: 'Mengoptimalkan kode dengan fungsi.',
+                indikatorSoal: 'Diberikan skenario pengulangan kode, siswa dapat memilih cara terbaik untuk menyederhanakan.',
+                levelKognitif: 'HOTS (C5 - Mengevaluasi)'
+            },
+            {
+                id: 'q39',
+                tab: 'tren',
+                type: 'mcq',
+                question: 'Untuk mengatasi masalah perundungan siber (cyberbullying) di kalangan remaja, salah satu solusi yang paling menekankan pada aspek etika digital adalah ....',
+                options: ['Memblokir semua akun media sosial pelaku.', 'Meningkatkan kesadaran dan pendidikan tentang empati dan perilaku daring yang bertanggung jawab.', 'Memberikan hukuman berat kepada pelaku tanpa proses edukasi.', 'Melarang remaja menggunakan media sosial sama sekali.'],
+                correctAnswer: 'b',
+                tujuanPembelajaran: 'Mengevaluasi solusi masalah etika digital.',
+                indikatorSoal: 'Diberikan masalah, siswa dapat mengevaluasi solusi paling efektif.',
+                levelKognitif: 'HOTS (C5 - Mengevaluasi)'
+            },
+            {
+                id: 'q40',
+                tab: 'tren',
+                type: 'mcq',
+                question: 'Dalam sebuah level Blockly Games, karakter harus melewati labirin yang polanya tidak diketahui sebelumnya dan harus mendeteksi dinding. Strategi pemecahan masalah yang paling sesuai adalah ....',
+                options: ['Menggunakan urutan blok maju dan belok yang sudah ditentukan dari awal.', 'Menggunakan blok pengulangan sederhana tanpa kondisi.', 'Menggunakan kombinasi blok kondisi (misalnya, if path ahead) dan pengulangan untuk membuat karakter bergerak adaptif.', 'Hanya menggunakan blok maju.'],
+                correctAnswer: 'c',
+                tujuanPembelajaran: 'Merancang strategi algoritma adaptif.',
+                indikatorSoal: 'Diberikan masalah labirin dinamis, siswa dapat memilih strategi pemecahan masalah yang sesuai.',
+                levelKognitif: 'HOTS (C6 - Mencipta)'
+            },
+            {
+                id: 'q41',
+                tab: 'tren',
+                type: 'mcq',
+                question: 'Dalam sebuah game di Scratch, Anda ingin memunculkan banyak musuh yang memiliki perilaku sama tanpa harus membuat sprite baru untuk setiap musuh. Fitur yang paling tepat digunakan adalah ....',
+                options: ['Mengubah kostum sprite.', 'Menggunakan blok broadcast.', 'Menggunakan fitur cloning (membuat klon dari sprite).', 'Menggunakan variabel global.'],
+                correctAnswer: 'c',
+                tujuanPembelajaran: 'Menerapkan fitur lanjutan Scratch (cloning).',
+                indikatorSoal: 'Diberikan skenario game, siswa dapat mengidentifikasi fitur Scratch yang tepat.',
+                levelKognitif: 'HOTS (C3 - Menerapkan)'
+            },
+            {
+                id: 'q42',
+                tab: 'tren',
+                type: 'mcq',
+                question: 'Regulasi seperti Undang-Undang Informasi dan Transaksi Elektronik (UU ITE) di Indonesia bertujuan utama untuk ....',
+                options: ['Membatasi kebebasan berekspresi di internet.', 'Memberikan kerangka hukum untuk pemanfaatan teknologi informasi dan transaksi elektronik serta mengatasi penyalahgunaannya.', 'Mendorong semua orang untuk menjadi pemrogram komputer.', 'Mengurangi penggunaan internet secara keseluruhan.'],
+                correctAnswer: 'b',
+                tujuanPembelajaran: 'Memahami tujuan regulasi informatika.',
+                indikatorSoal: 'Disajikan regulasi, siswa dapat mengidentifikasi tujuan utamanya.',
+                levelKognitif: 'LOTS (C2 - Memahami)'
+            },
+            {
+                id: 'q43',
+                tab: 'tren',
+                type: 'mcq',
+                question: 'Pembuatan karya seni digital menggunakan perangkat lunak desain grafis adalah contoh hubungan antara informatika dan bidang ....',
+                options: ['Olahraga', 'Seni', 'Politik', 'Pertanian'],
+                correctAnswer: 'b',
+                tujuanPembelajaran: 'Mengidentifikasi hubungan informatika dengan bidang seni.',
+                indikatorSoal: 'Diberikan contoh, siswa dapat mengidentifikasi bidang terkait.',
+                levelKognitif: 'LOTS (C2 - Memahami)'
+            },
+            {
+                id: 'q44',
+                tab: 'tren',
+                type: 'mcq',
+                question: 'Perhatikan dua set blok Blockly berikut yang memiliki tujuan sama, yaitu menggerakkan karakter maju 5 langkah:<br> `Set A: move forward, move forward, move forward, move forward, move forward` <br> `Set B: repeat 5 times [ move forward ]` <br> Manakah pernyataan yang paling tepat mengenai kedua set blok tersebut?',
+                options: ['Set A lebih optimal karena lebih mudah dibaca.', 'Set B lebih optimal karena menggunakan lebih sedikit blok dan lebih efisien.', 'Keduanya sama-sama optimal.', 'Set A lebih optimal karena tidak menggunakan blok pengulangan.'],
+                correctAnswer: 'b',
+                tujuanPembelajaran: 'Mengevaluasi efisiensi kode.',
+                indikatorSoal: 'Diberikan dua potongan kode, siswa dapat mengevaluasi efisiensinya.',
+                levelKognitif: 'HOTS (C5 - Mengevaluasi)'
+            },
+            {
+                id: 'q45',
+                tab: 'tren',
+                type: 'mcq',
+                question: 'Dalam sebuah game kuis di Scratch, Anda ingin menyimpan daftar pertanyaan dan jawaban yang sesuai. Struktur data yang paling cocok untuk menyimpan banyak pertanyaan beserta jawabannya adalah ....',
+                options: ['Satu variabel untuk semua pertanyaan dan satu variabel untuk semua jawaban.', 'Beberapa variabel terpisah untuk setiap pertanyaan dan setiap jawaban.', 'Menggunakan list (daftar) untuk pertanyaan dan list lain untuk jawaban, atau list yang berisi pasangan pertanyaan-jawaban.', 'Hanya menggunakan blok ask and wait.'],
+                correctAnswer: 'c',
+                tujuanPembelajaran: 'Memilih struktur data yang tepat.',
+                indikatorSoal: 'Diberikan kebutuhan penyimpanan data, siswa dapat memilih struktur data yang cocok.',
+                levelKognitif: 'HOTS (C3 - Menerapkan)'
+            },
+            {
+                id: 'q46',
+                tab: 'tren',
+                type: 'conceptual',
+                question: 'Membuat algoritma sederhana dengan Blockly Games',
+                tujuanPembelajaran: 'Membuat algoritma sederhana dengan Blockly Games',
+                indikatorSoal: 'Disajikan sebuah masalah sederhana yang dapat diselesaikan dengan Blockly Games, siswa dapat menyusun urutan blok perintah (algoritma) yang benar untuk mencapai solusi.',
+                levelKognitif: 'HOTS (C6 - Mencipta)',
+                answer: 'Untuk membuat algoritma sederhana dengan Blockly Games, siswa perlu memahami masalah yang diberikan, memecahnya menjadi langkah-langkah kecil, dan kemudian menyusun blok-blok perintah secara logis untuk menyelesaikan setiap langkah. Contoh: membuat karakter melewati labirin sederhana dengan blok `move forward`, `turn left`, `turn right`.'
+            },
+            {
+                id: 'q47',
+                tab: 'tren',
+                type: 'conceptual',
+                question: 'Merancang animasi sederhana menggunakan Scratch',
+                tujuanPembelajaran: 'Merancang animasi sederhana menggunakan Scratch',
+                indikatorSoal: 'Diberikan skenario animasi sederhana, siswa dapat memilih dan menyusun kombinasi blok perintah (misalnya gerak, tampilan, suara, kontrol) yang tepat di Scratch untuk menghasilkan animasi sesuai skenario.',
+                levelKognitif: 'HOTS (C6 - Mencipta)',
+                answer: 'Merancang animasi sederhana di Scratch melibatkan pemilihan sprite dan latar belakang, kemudian menggunakan blok dari kategori Motion, Looks, dan Sound untuk menggerakkan sprite, mengubah tampilannya (kostum), dan menambahkan efek suara sesuai alur cerita animasi. Contoh: membuat sprite kucing berjalan dan mengatakan "Meow!" saat diklik.'
+            },
+            {
+                id: 'q48',
+                tab: 'tren',
+                type: 'conceptual',
+                question: 'Membuat game sederhana menggunakan Scratch',
+                tujuanPembelajaran: 'Membuat game sederhana menggunakan Scratch',
+                indikatorSoal: 'Disajikan konsep game sederhana (misalnya, game kejar-kejaran atau kuis interaktif), siswa dapat merancang dan mengimplementasikan logika dasar game tersebut menggunakan blok-blok Scratch, termasuk interaksi antar sprite, penggunaan variabel (misalnya untuk skor), dan kondisi.',
+                levelKognitif: 'HOTS (C6 - Mencipta)',
+                answer: 'Membuat game sederhana di Scratch memerlukan perancangan aturan main, interaksi antar sprite (misalnya, jika sprite pemain menyentuh sprite musuh, skor berkurang), penggunaan variabel untuk skor atau nyawa, dan blok kontrol untuk mengatur alur permainan (misalnya, perulangan `forever`, kondisi `if-then`). Contoh: game "tangkap apel" di mana apel jatuh dan pemain menggerakkan keranjang untuk menangkapnya.'
+            },
+            {
+                id: 'q49',
+                tab: 'tren',
+                type: 'conceptual',
+                question: 'Merancang solusi berbasis informatika untuk masalah di bidang lain',
+                tujuanPembelajaran: 'Merancang solusi berbasis informatika untuk masalah di bidang lain',
+                indikatorSoal: 'Disajikan sebuah permasalahan kontekstual di bidang non-informatika (misalnya, lingkungan, kesehatan, pendidikan), siswa dapat mengusulkan rancangan solusi awal yang memanfaatkan konsep atau alat informatika.',
+                levelKognitif: 'HOTS (C6 - Mencipta)',
+                answer: 'Merancang solusi berbasis informatika untuk masalah di bidang lain berarti mengidentifikasi masalah nyata (misalnya, antrean panjang di puskesmas), menganalisis bagaimana teknologi informatika (misalnya, sistem antrean online, aplikasi pendaftaran) dapat membantu menyelesaikannya, dan membuat rancangan awal sistem atau aplikasi tersebut.'
+            },
+            {
+                id: 'q50',
+                tab: 'tren',
+                type: 'conceptual',
+                question: 'Prediksi tren dampak informatika di masa depan',
+                tujuanPembelajaran: 'Prediksi tren dampak informatika di masa depan',
+                indikatorSoal: 'Siswa dapat menjelaskan dan memberikan contoh prediksi tren dampak positif dan/atau negatif perkembangan informatika di masa depan dalam berbagai aspek kehidupan (misalnya, pekerjaan, sosial, etika).',
+                levelKognitif: 'HOTS (C5 - Mengevaluasi)',
+                answer: 'Prediksi tren dampak informatika di masa depan meliputi peningkatan otomatisasi pekerjaan (positif: efisiensi; negatif: hilangnya beberapa jenis pekerjaan), personalisasi pendidikan melalui AI (positif: pembelajaran lebih efektif), tantangan etika terkait privasi data dan bias algoritma (negatif: diskriminasi).'
+            }
+        ];
+
+        const tabButtons = document.querySelectorAll('.tab-button');
+        const tabContents = document.querySelectorAll('.tab-content');
+        const accordionButtons = document.querySelectorAll('.accordion-button');
+
+        // Fungsi untuk merender soal ke dalam DOM
+        function renderQuestions(tabId) {
+            const container = document.getElementById(`${tabId}-questions`);
+            if (!container) return;
+            container.innerHTML = ''; // Hapus soal sebelumnya
+
+            const filteredQuestions = questionsData.filter(q => q.tab === tabId);
+
+            filteredQuestions.forEach((q, index) => {
+                const questionHtml = `
+                    <div class="accordion-item bg-stone-50 rounded-lg shadow">
+                        <button class="accordion-button w-full flex justify-between items-center text-left p-4 font-medium text-stone-700 hover:bg-stone-200 focus:outline-none">
+                            <span>Soal ${index + 1}. ${q.question.split('<br>')[0]}</span>
+                            <svg class="accordion-icon w-5 h-5 text-stone-500 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div class="accordion-content p-4 border-t border-stone-200">
+                            <p class="text-stone-700 font-semibold mb-2">Soal:</p>
+                            <p class="text-stone-600 mb-4">${q.question}</p>
+                            ${q.type === 'mcq' ? `
+                                <p class="text-stone-700 font-semibold mb-2">Pilihan Jawaban:</p>
+                                <ul class="list-none space-y-1 mb-4">
+                                    ${q.options.map((opt, i) => `<li class="text-stone-600">${String.fromCharCode(97 + i)}. ${opt}</li>`).join('')}
+                                </ul>
+                            ` : ''}
+                            <button class="show-answer-button bg-amber-500 text-white px-4 py-2 rounded-md hover:bg-amber-600 transition-colors duration-200">Tampilkan Jawaban & Detail</button>
+                            <div class="answer-details mt-4 p-3 bg-amber-50 rounded-md border border-amber-200 hidden">
+                                <p class="text-stone-700 font-semibold">Jawaban: <span class="text-amber-700">${q.correctAnswer ? q.correctAnswer.toUpperCase() : 'N/A'}</span></p>
+                                <p class="text-stone-700 font-semibold">Tujuan Pembelajaran:</p>
+                                <p class="text-stone-600">${q.tujuanPembelajaran}</p>
+                                <p class="text-stone-700 font-semibold mt-2">Indikator Soal:</p>
+                                <p class="text-stone-600">${q.indikatorSoal}</p>
+                                <p class="text-stone-700 font-semibold mt-2">Level Kognitif:</p>
+                                <p class="text-stone-600">${q.levelKognitif}</p>
+                                ${q.type === 'conceptual' ? `
+                                    <p class="text-stone-700 font-semibold mt-2">Penjelasan Jawaban:</p>
+                                    <p class="text-stone-600">${q.answer}</p>
+                                ` : ''}
+                            </div>
+                        </div>
+                    </div>
+                `;
+                container.insertAdjacentHTML('beforeend', questionHtml);
+            });
+
+            // Re-attach event listeners untuk elemen yang baru dirender
+            container.querySelectorAll('.accordion-button').forEach(button => {
+                button.addEventListener('click', (event) => {
+                    const content = button.nextElementSibling;
+                    button.classList.toggle('active');
+                    if (content.style.maxHeight) {
+                        content.style.maxHeight = null;
+                    } else {
+                        content.style.maxHeight = content.scrollHeight + "px";
+                    }
+                });
+            });
+
+            container.querySelectorAll('.show-answer-button').forEach(button => {
+                button.addEventListener('click', () => {
+                    const answerDetails = button.nextElementSibling;
+                    answerDetails.classList.toggle('hidden');
+                    if (!answerDetails.classList.contains('hidden')) {
+                         button.textContent = 'Sembunyikan Jawaban & Detail';
+                    } else {
+                         button.textContent = 'Tampilkan Jawaban & Detail';
+                    }
+                });
+            });
+        }
+
+        // Fungsi untuk memperbarui konten tab
+        function updateTabContent(targetTab) {
+            tabContents.forEach(content => {
+                if (content.id === targetTab) {
+                    content.classList.add('active');
+                } else {
+                    content.classList.remove('active');
+                }
+            });
+            renderQuestions(targetTab); // Render soal untuk tab yang aktif
+            if (targetTab === 'tren') {
+                renderCognitiveLevelChart(); // Render chart jika di tab 'Tren & Solusi'
+            } else {
+                if (window.cognitiveLevelChartInstance) {
+                    window.cognitiveLevelChartInstance.destroy(); // Hancurkan chart jika tidak di tab 'Tren & Solusi'
+                }
+            }
+        }
+
+        // Event listener untuk tombol tab
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                tabButtons.forEach(btn => {
+                    btn.classList.remove('bg-white', 'text-amber-600', 'border-l', 'border-t', 'border-r');
+                    btn.classList.add('bg-stone-200', 'text-stone-600', 'hover:bg-stone-300');
+                });
+                button.classList.add('bg-white', 'text-amber-600', 'border-l', 'border-t', 'border-r');
+                button.classList.remove('bg-stone-200', 'text-stone-600', 'hover:bg-stone-300');
+                
+                const targetTab = button.dataset.tab;
+                updateTabContent(targetTab);
+            });
+        });
+
+        // Setup awal akordeon untuk konten statis (materi & indikator)
+        accordionButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const content = button.nextElementSibling;
+                button.classList.toggle('active');
+                if (content.style.maxHeight) {
+                    content.style.maxHeight = null;
+                } else {
+                    content.style.maxHeight = content.scrollHeight + "px";
+                }
+            });
+        });
+
+        // Chart untuk Level Kognitif
+        function renderCognitiveLevelChart() {
+            if (window.cognitiveLevelChartInstance) {
+                window.cognitiveLevelChartInstance.destroy();
+            }
+
+            const lotsCount = questionsData.filter(q => q.levelKognitif.includes('LOTS')).length;
+            const hotsCount = questionsData.filter(q => q.levelKognitif.includes('HOTS')).length;
+
+            const ctx = document.getElementById('cognitiveLevelChart').getContext('2d');
+            window.cognitiveLevelChartInstance = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['LOTS (Lower Order Thinking Skills)', 'HOTS (Higher Order Thinking Skills)'],
+                    datasets: [{
+                        label: 'Jumlah Soal',
+                        data: [lotsCount, hotsCount],
+                        backgroundColor: [
+                            'rgba(251, 191, 36, 0.6)', // Amber-300
+                            'rgba(217, 119, 6, 0.6)'   // Amber-600
+                        ],
+                        borderColor: [
+                            'rgba(251, 191, 36, 1)',
+                            'rgba(217, 119, 6, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            callbacks: {
+                                title: function(context) {
+                                    const label = context[0].label;
+                                    const words = label.split(' ');
+                                    let wrappedLabel = '';
+                                    let line = '';
+                                    words.forEach(word => {
+                                        if ((line + word).length > 16) {
+                                            wrappedLabel += line + '\n';
+                                            line = word + ' ';
+                                        } else {
+                                            line += word + ' ';
+                                        }
+                                    });
+                                    wrappedLabel += line;
+                                    return wrappedLabel.trim();
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                precision: 0
+                            },
+                            title: {
+                                display: true,
+                                text: 'Jumlah Soal'
+                            }
+                        },
+                        x: {
+                            ticks: {
+                                callback: function(value, index, values) {
+                                    const label = this.getLabelForValue(value);
+                                    const words = label.split(' ');
+                                    let wrappedLabel = [];
+                                    let line = '';
+                                    words.forEach(word => {
+                                        if ((line + word).length > 16 && line !== '') {
+                                            wrappedLabel.push(line.trim());
+                                            line = word + ' ';
+                                        } else {
+                                            line += word + ' ';
+                                        }
+                                    });
+                                    wrappedLabel.push(line.trim());
+                                    return wrappedLabel;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        // --- Fitur Gemini API: Pembuat Soal Otomatis ---
+        const apiKey = ""; // API Key akan disediakan oleh Canvas saat runtime
+
+        async function generateQuestion(tabId, topicInputId, loadingId, errorId) {
+            const topic = document.getElementById(topicInputId).value;
+            const loadingElement = document.getElementById(loadingId);
+            const errorElement = document.getElementById(errorId);
+            loadingElement.classList.remove('hidden');
+            errorElement.classList.add('hidden');
+
+            if (!topic) {
+                errorElement.textContent = 'Mohon masukkan topik untuk soal.';
+                errorElement.classList.remove('hidden');
+                loadingElement.classList.add('hidden');
+                return;
+            }
+
+            const prompt = `Buatkan satu soal pilihan ganda tentang topik "${topic}" untuk pelajaran Informatika. Soal harus memiliki 4 pilihan jawaban (a, b, c, d), satu jawaban benar, penjelasan singkat mengapa jawaban tersebut benar, dan level kognitifnya (LOTS atau HOTS). Berikan dalam format JSON berikut:
+            {
+              "question": "Pertanyaan soal...",
+              "options": ["Pilihan a", "Pilihan b", "Pilihan c", "Pilihan d"],
+              "correctAnswerIndex": 0, // 0 untuk a, 1 untuk b, dst.
+              "explanation": "Penjelasan jawaban...",
+              "cognitiveLevel": "LOTS (C1 - Mengingat)" // atau HOTS (C4 - Menganalisis)
+            }`;
+
+            let chatHistory = [];
+            chatHistory.push({ role: "user", parts: [{ text: prompt }] });
+
+            const payload = {
+                contents: chatHistory,
+                generationConfig: {
+                    responseMimeType: "application/json",
+                    responseSchema: {
+                        type: "OBJECT",
+                        properties: {
+                            "question": { "type": "STRING" },
+                            "options": {
+                                "type": "ARRAY",
+                                "items": { "type": "STRING" }
+                            },
+                            "correctAnswerIndex": { "type": "NUMBER" },
+                            "explanation": { "type": "STRING" },
+                            "cognitiveLevel": { "type": "STRING" }
+                        },
+                        "required": ["question", "options", "correctAnswerIndex", "explanation", "cognitiveLevel"]
+                    }
+                }
+            };
+
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+
+            try {
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                const result = await response.json();
+
+                if (result.candidates && result.candidates.length > 0 &&
+                    result.candidates[0].content && result.candidates[0].content.parts &&
+                    result.candidates[0].content.parts.length > 0) {
+                    const jsonString = result.candidates[0].content.parts[0].text;
+                    const generatedQuestion = JSON.parse(jsonString);
+
+                    const newQuestionId = `ai-q-${Date.now()}`;
+                    const newQuestion = {
+                        id: newQuestionId,
+                        tab: tabId,
+                        type: 'mcq',
+                        question: generatedQuestion.question,
+                        options: generatedQuestion.options,
+                        correctAnswer: String.fromCharCode(97 + generatedQuestion.correctAnswerIndex),
+                        tujuanPembelajaran: `Memahami konsep ${topic} (dari AI).`,
+                        indikatorSoal: `Siswa dapat menjawab soal tentang ${topic}.`,
+                        levelKognitif: generatedQuestion.cognitiveLevel,
+                        answer: generatedQuestion.explanation
+                    };
+                    questionsData.push(newQuestion); // Tambahkan soal baru ke data
+                    renderQuestions(tabId); // Render ulang soal untuk tab ini
+                } else {
+                    errorElement.textContent = 'Gagal membuat soal. Coba lagi.';
+                    errorElement.classList.remove('hidden');
+                }
+            } catch (error) {
+                errorElement.textContent = 'Terjadi kesalahan saat menghubungi API. ' + error.message;
+                errorElement.classList.remove('hidden');
+            } finally {
+                loadingElement.classList.add('hidden');
+            }
+        }
+
+        document.getElementById('generateBlocklyQuestion').addEventListener('click', () => {
+            generateQuestion('blockly', 'blocklyTopic', 'blocklyLoading', 'blocklyError');
+        });
+        document.getElementById('generateScratchQuestion').addEventListener('click', () => {
+            generateQuestion('scratch', 'scratchTopic', 'scratchLoading', 'scratchError');
+        });
+        document.getElementById('generateDampakQuestion').addEventListener('click', () => {
+            generateQuestion('dampak', 'dampakTopic', 'dampakLoading', 'dampakError');
+        });
+        document.getElementById('generateLintasBidangQuestion').addEventListener('click', () => {
+            generateQuestion('lintasbidang', 'lintasBidangTopic', 'lintasBidangLoading', 'lintasBidangError');
+        });
+        document.getElementById('generateTrenQuestion').addEventListener('click', () => {
+            generateQuestion('tren', 'trenTopic', 'trenLoading', 'trenError');
+        });
+
+        // --- Fitur Gemini API: Penyelesai Masalah Informatika ---
+        document.getElementById('solveProblemButton').addEventListener('click', async () => {
+            const problemInput = document.getElementById('problemInput').value;
+            const loadingElement = document.getElementById('problemSolverLoading');
+            const errorElement = document.getElementById('problemSolverError');
+            const solutionOutput = document.getElementById('solutionOutput');
+
+            loadingElement.classList.remove('hidden');
+            errorElement.classList.add('hidden');
+            solutionOutput.classList.add('hidden'); // Sembunyikan output sebelumnya
+
+            if (!problemInput) {
+                errorElement.textContent = 'Mohon jelaskan masalah yang ingin dipecahkan.';
+                errorElement.classList.remove('hidden');
+                loadingElement.classList.add('hidden');
+                return;
+            }
+
+            const prompt = `Saya memiliki masalah berikut: "${problemInput}". Usulkan solusi berbasis informatika untuk masalah ini. Sertakan judul solusi, komponen utama yang diperlukan (dalam bentuk poin-poin), dan manfaat potensial dari solusi tersebut (dalam bentuk poin-poin). Berikan dalam format JSON berikut:
+            {
+              "problemDescription": "Deskripsi masalah yang diberikan pengguna.",
+              "solutionTitle": "Judul solusi yang diusulkan.",
+              "coreComponents": ["Komponen 1", "Komponen 2", "Komponen 3"],
+              "potentialBenefits": ["Manfaat 1", "Manfaat 2"]
+            }`;
+
+            let chatHistory = [];
+            chatHistory.push({ role: "user", parts: [{ text: prompt }] });
+
+            const payload = {
+                contents: chatHistory,
+                generationConfig: {
+                    responseMimeType: "application/json",
+                    responseSchema: {
+                        type: "OBJECT",
+                        properties: {
+                            "problemDescription": { "type": "STRING" },
+                            "solutionTitle": { "type": "STRING" },
+                            "coreComponents": {
+                                "type": "ARRAY",
+                                "items": { "type": "STRING" }
+                            },
+                            "potentialBenefits": {
+                                "type": "ARRAY",
+                                "items": { "type": "STRING" }
+                            }
+                        },
+                        "required": ["problemDescription", "solutionTitle", "coreComponents", "potentialBenefits"]
+                    }
+                }
+            };
+
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+
+            try {
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                const result = await response.json();
+
+                if (result.candidates && result.candidates.length > 0 &&
+                    result.candidates[0].content && result.candidates[0].content.parts &&
+                    result.candidates[0].content.parts.length > 0) {
+                    const jsonString = result.candidates[0].content.parts[0].text;
+                    const solution = JSON.parse(jsonString);
+
+                    document.getElementById('solutionTitle').textContent = solution.solutionTitle;
+                    document.getElementById('outputProblemDescription').textContent = solution.problemDescription;
+                    
+                    const componentsList = document.getElementById('outputCoreComponents');
+                    componentsList.innerHTML = '';
+                    solution.coreComponents.forEach(item => {
+                        const li = document.createElement('li');
+                        li.textContent = item;
+                        componentsList.appendChild(li);
+                    });
+
+                    const benefitsList = document.getElementById('outputPotentialBenefits');
+                    benefitsList.innerHTML = '';
+                    solution.potentialBenefits.forEach(item => {
+                        const li = document.createElement('li');
+                        li.textContent = item;
+                        benefitsList.appendChild(li);
+                    });
+
+                    solutionOutput.classList.remove('hidden');
+                } else {
+                    errorElement.textContent = 'Gagal mengusulkan solusi. Coba lagi.';
+                    errorElement.classList.remove('hidden');
+                }
+            } catch (error) {
+                errorElement.textContent = 'Terjadi kesalahan saat menghubungi API. ' + error.message;
+                errorElement.classList.remove('hidden');
+            } finally {
+                loadingElement.classList.add('hidden');
+            }
+        });
+
+        // Inisialisasi tab pertama dan soal
+        document.addEventListener('DOMContentLoaded', () => {
+            updateTabContent('blockly');
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
+        });
+    </script>
+</body>
+</html>
